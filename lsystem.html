@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="lsystem">
+<head>
+    <!-- JS -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/bootstrap/js/dropdown.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+
+    <!-- Local js -->
+    <script src="./js/lsystem.js"></script>
+    <script src="js/controllers/indexController.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="./css/lsystem.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
+
+</head>
+<body class="container-fluid" ng-controller="indexController">
+<h3>L-system canvas</h3>
+<hr>
+<div class="row">
+    <!-- Left pane -->
+    <div class="leftpane col-md-2">
+        <div class="input-group">
+            <div class="input-group">
+                <input type="text" value="A=DF;B=DF" class="form-control" placeholder="Variables" aria-label="..."
+                       ng-model="inputVariables">
+                <span class="input-group-addon">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </span>
+            </div>
+            <input type="text" value="" class="form-control" placeholder="Constants" aria-label="..." ng-model="inputConstants">
+            <input type="text" class="form-control" placeholder="Start" aria-label="..." ng-model="inputStart">
+            <input type="text" class="form-control" placeholder="Rules" aria-label="..." ng-model="inputRules">
+            <input type="text" class="form-control" placeholder="Number of iterations" aria-label="..." ng-model="inputIterations">
+            <button type="button" class="btn btn-primary" ng-click="parseInput()">Draw</button>
+            <button type="button" class="btn btn-primary" ng-click="clearInput()">Clear</button>
+            <button type="button" class="btn btn-primary" ng-click="setDefaultData()">Example</button>
+        </div>
+        <!-- /btn-group -->
+    </div>
+    <!-- /input-group -->
+    <!-- Right pane -->
+    <div class="rightpane col-md-10">
+        <canvas id="lsystem" width="1024" height="600"></canvas>
+    </div>
+</div>
+</body>
+</html>
